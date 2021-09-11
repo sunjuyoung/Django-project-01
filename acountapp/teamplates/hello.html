@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content_block">
+    <form action="account/helloworld" method="post">
+        {% csrf_token %}
+        <input type="text" name="hello_world_input">
+
+        <button type="submit" class="btn btn-primary">버튼</button>
+    </form>
+
+    {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+    <h1>
+        {{ hello_world }}
+    </h1>
+{% endfor %}
+{% endif %}
+</div>
+
+{% endblock %}
